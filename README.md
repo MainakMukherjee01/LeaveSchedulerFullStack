@@ -9,12 +9,16 @@ In project Backend-Repo `LeaveScheduler` create a .env file with fields:
     SPRING_MAIL_USERNAME=<YOUR_SMTP_ENABLED_MAIL_USERNAME>
     SPRING_MAIL_PASSWORD=<YOUR_SMTP_ENABLED_MAIL_PASSWORD>
 
+  Run `mvn clean install`
+
 In project Frontend-Repo `leave-scheduler-frontend` create a .env file with fields:
 
     VITE_API_BASE_URL=<YOUR_BACKEND_HTTP_LINK_EG:http://{host}:{port}>
+  
+  Run `npm install --save-dev`
 
 In project Root Folder, to start app
 
-    npm run start:all
+    npm install && npm run start:all
 
 Open http://localhost:5173
