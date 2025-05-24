@@ -204,7 +204,7 @@ const Dashboard = () => {
 					<div className="w-full text-lg font-bold bg-white px-5 py-2 rounded-4xl shadow animate-slide-in text-center whitespace-nowrap">
 						<span className="uppercase tracking-wide">{greeting}</span>,{" "}
 						<span className="text-primary font-extrabold">
-							{user?.username || "User"}
+							{user?.fullName || "User"}
 						</span>
 						!
 					</div>
