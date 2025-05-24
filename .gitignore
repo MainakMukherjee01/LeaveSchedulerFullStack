@@ -75,5 +75,7 @@ build/
 ### Secrets ###
 .env
 
-README.md
+### Readme files ###
+LeaveScheduler/README.md
+leave-scheduler-frontend/README.md
 
