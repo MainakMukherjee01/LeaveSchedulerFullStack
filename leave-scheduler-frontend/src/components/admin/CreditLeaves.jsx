@@ -10,6 +10,7 @@ const LEAVE_TYPES = [
 	"BEREAVEMENT",
 	"UNPAID",
 	"COMPENSATORY",
+	"SPECIAL"
 ];
 
 const CreditLeaves = () => {

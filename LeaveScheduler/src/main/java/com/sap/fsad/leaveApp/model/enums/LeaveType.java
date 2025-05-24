@@ -8,5 +8,6 @@ public enum LeaveType {
     PATERNITY,
     BEREAVEMENT,
     UNPAID,
-    COMPENSATORY
+    COMPENSATORY,
+    SPECIAL
 }
