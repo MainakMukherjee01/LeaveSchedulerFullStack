@@ -12,3 +12,8 @@ In project Backend-Repo `LeaveScheduler` create a .env file with fields:
 In project Frontend-Repo `leave-scheduler-frontend` create a .env file with fields:
 
     VITE_API_BASE_URL=<YOUR_BACKEND_HTTP_LINK_EG:http://{host}:{port}>
+
+In project Root Folder, to start app
+
+    npm run start:all
+
