@@ -17,3 +17,4 @@ In project Root Folder, to start app
 
     npm run start:all
 
+    Open [ Browser port 5173 | https://localhost:5173 ]
