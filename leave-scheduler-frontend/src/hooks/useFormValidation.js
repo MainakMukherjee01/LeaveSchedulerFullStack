@@ -16,10 +16,10 @@ const useFormValidation = (initialValues, validate) => {
 		const { name, value, type, checked } = e.target;
 		const fieldValue = type === "checkbox" ? checked : value;
 
-		setValues({
+		setValues((values)=>({
 			...values,
 			[name]: fieldValue,
-		});
+		}));
 
 		// Clear error when user starts typing
 		if (errors[name]) {
