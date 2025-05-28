@@ -9,12 +9,14 @@ const CalendarPage = () => {
 	const [date, setDate] = useState(new Date());
 	const [events, setEvents] = useState([]);
 
+	// Fetch events for the visible month/year
 	useEffect(() => {
 		const user = getUser();
 		const userId = user ? user.id : null;
-		const url = userId
-			? `http://localhost:8080/api/leave-applications/calendar?userId=${userId}`
-			: `http://localhost:8080/api/leave-applications/calendar`;
+		const month = date.getMonth() + 1; // JS months are 0-based, API expects 1-based
+		const year = date.getFullYear();
+		let url = `http://localhost:8080/api/leave-applications/calendar?month=${month}&year=${year}`;
+		if (userId) url += `&userId=${userId}`;
 		fetch(url, {
 			method: "GET",
 			headers: {
@@ -26,7 +28,7 @@ const CalendarPage = () => {
 				setEvents(data || []);
 			})
 			.catch(() => setEvents([]));
-	}, []);
+	}, [date]);
 
 	// Helper to get all events for a date
 	const isInRange = (tileDate, start, end) => {
@@ -73,6 +75,9 @@ const CalendarPage = () => {
 					<Calendar
 						onChange={setDate}
 						value={date}
+						onActiveStartDateChange={({ activeStartDate }) =>
+							setDate(activeStartDate)
+						}
 						prev2Label={null}
 						next2Label={null}
 						className="bg-primary custom-calendar-view"
@@ -166,7 +171,7 @@ const CalendarPage = () => {
 					<div className="flex items-center gap-2">
 						<span
 							className="inline-block w-5 h-5 rounded"
-							style={{ background: "#10b981", border: "2px solid #059669" }}
+							style={{ background: "#004526", border: "2px solid #1B4D3E" }}
 						></span>
 						<span>Approved Leave</span>
 					</div>

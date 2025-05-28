@@ -107,8 +107,10 @@ public class LeaveController {
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<List<CalendarEventResponse>> getCalendarEvents(
             @RequestParam(required = false) Long userId ,
-            @RequestParam(required = false) String department) {
-        List<CalendarEventResponse> events = leaveService.getCalendarEvents(userId, department);
+            @RequestParam(required = false) String department,
+            @RequestParam(required = true) Integer month,
+            @RequestParam(required = true) Integer year) {
+        List<CalendarEventResponse> events = leaveService.getCalendarEvents(userId, department, month, year);
         return ResponseEntity.ok(events);
     }
 }

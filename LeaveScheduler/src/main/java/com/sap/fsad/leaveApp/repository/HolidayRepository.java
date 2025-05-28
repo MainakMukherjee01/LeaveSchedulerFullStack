@@ -1,13 +1,14 @@
 package com.sap.fsad.leaveApp.repository;
 
-import com.sap.fsad.leaveApp.model.Holiday;
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
-import java.util.List;
+import com.sap.fsad.leaveApp.model.Holiday;
 
 @Repository
 public interface HolidayRepository extends JpaRepository<Holiday, Long> {
@@ -20,4 +21,6 @@ public interface HolidayRepository extends JpaRepository<Holiday, Long> {
     List<Holiday> findByMonthAndYear(@Param("month") Integer month, @Param("year") Integer year);
 
     boolean existsByDate(LocalDate date);
+
+    List<Holiday> findByIsRecurringTrue();
 }

@@ -95,14 +95,50 @@ public class HolidayService {
      * Get holidays by year
      */
     public List<Holiday> getHolidaysByYear(Integer year) {
-        return holidayRepository.findByYear(year);
+        List<Holiday> holidays = holidayRepository.findByYear(year);
+        // Add recurring holidays from other years
+        List<Holiday> recurring = holidayRepository.findByIsRecurringTrue();
+        for (Holiday h : recurring) {
+            if (h.getDate() != null && h.getDate().getYear() != year) {
+                // Create a copy with the requested year
+                Holiday recurringCopy = new Holiday(
+                        h.getId(),
+                        h.getName(),
+                        h.getDate().withYear(year),
+                        h.getType(),
+                        h.getDescription(),
+                        h.getIsRecurring(),
+                        h.getCreatedAt(),
+                        h.getUpdatedAt());
+                holidays.add(recurringCopy);
+            }
+        }
+        return holidays;
     }
 
     /**
      * Get holidays by month and year
      */
     public List<Holiday> getHolidaysByMonthAndYear(Integer month, Integer year) {
-        return holidayRepository.findByMonthAndYear(month, year);
+        List<Holiday> holidays = holidayRepository.findByMonthAndYear(month, year);
+        // Add recurring holidays from other years
+        List<Holiday> recurring = holidayRepository.findByIsRecurringTrue();
+        for (Holiday h : recurring) {
+            if (h.getDate() != null && h.getDate().getMonthValue() == month && h.getDate().getYear() != year) {
+                // Create a copy with the requested year
+                Holiday recurringCopy = new Holiday(
+                        h.getId(),
+                        h.getName(),
+                        h.getDate().withYear(year),
+                        h.getType(),
+                        h.getDescription(),
+                        h.getIsRecurring(),
+                        h.getCreatedAt(),
+                        h.getUpdatedAt());
+                holidays.add(recurringCopy);
+            }
+        }
+        return holidays;
     }
 
     /**

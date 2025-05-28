@@ -104,10 +104,10 @@
 
 /* Leave status: approved */
 .custom-calendar-view .react-calendar__tile.calendar-leave-status-approved {
-	background: #10b981 !important; /* Tailwind emerald-500 (sea-green) */
+	background: #004526 !important; /* Tailwind emerald-500 (sea-green) */
 	color: #fff !important;
 	font-weight: bold;
-	border: 2px solid #059669 !important; /* Tailwind emerald-600 */
+	border: 2px solid #1B4D3E !important; /* Tailwind emerald-600 */
 }
 
 /* Leave status: rejected */

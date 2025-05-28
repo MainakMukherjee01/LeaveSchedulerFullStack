@@ -291,7 +291,7 @@ public class LeaveService {
     /**
      * Get leave schedules and holidays for a specific user or department
      */
-    public List<CalendarEventResponse> getCalendarEvents(Long userId, String department) {
+    public List<CalendarEventResponse> getCalendarEvents(Long userId, String department, Integer month, Integer year) {
         List<CalendarEventResponse> events = new ArrayList<>();
 
         // Fetch leave applications
@@ -315,7 +315,7 @@ public class LeaveService {
         }
 
         // Fetch holidays
-        List<Holiday> holidays = holidayService.getAllHolidays();
+        List<Holiday> holidays = holidayService.getHolidaysByMonthAndYear(month, year);
         for (Holiday holiday : holidays) {
             events.add(new CalendarEventResponse(
                     holiday.getDate(),
