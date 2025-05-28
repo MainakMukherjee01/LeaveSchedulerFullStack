@@ -25,7 +25,7 @@ const HolidaysTable = ({ isAdmin }) => {
 		try {
 			const token = localStorage.getItem("authToken");
 			const res = await axios.get(
-				`${import.meta.env.VITE_API_BASE_URL}/api/holidays/`,
+				`${import.meta.env.VITE_API_BASE_URL}/api/holidays/year/${new Date().getFullYear()}`,
 				{ headers: { Authorization: `Bearer ${token}` } }
 			);
 			setHolidays(res.data || []);
