@@ -15,7 +15,7 @@ const CalendarPage = () => {
 		const userId = user ? user.id : null;
 		const month = date.getMonth() + 1; // JS months are 0-based, API expects 1-based
 		const year = date.getFullYear();
-		let url = `http://localhost:8080/api/leave-applications/calendar?month=${month}&year=${year}`;
+		let url = `${import.meta.env.VITE_API_BASE_URL}/api/leave-applications/calendar?month=${month}&year=${year}`;
 		if (userId) url += `&userId=${userId}`;
 		fetch(url, {
 			method: "GET",
