@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaSignInAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useFormValidation from "../../hooks/useFormValidation";
@@ -67,7 +67,7 @@ const Login = () => {
 	};
 
 	// Check for remembered user on component mount
-	React.useEffect(() => {
+	useEffect(() => {
 		const rememberedUser = localStorage.getItem("rememberUser");
 		if (rememberedUser) {
 			setRememberMe(true);
