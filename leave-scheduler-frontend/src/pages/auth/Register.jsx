@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import PasswordStrengthIndicator from "../../components/auth/PasswordStrengthIndicator";
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -174,6 +175,7 @@ const Register = () => {
 						className="w-full mb-4 p-3 border rounded-lg bg-input-bg text-primary border-accent-pink focus:outline-none focus:ring-2 focus:ring-accent-pink font-medium text-base transition-all"
 						required
 					/>
+					<PasswordStrengthIndicator password={formData.password} />
 					<input
 						name="confirmPassword"
 						type="password"

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import PasswordStrengthIndicator from "../../components/auth/PasswordStrengthIndicator";
 
 const ResetPassword = () => {
 	const navigate = useNavigate();
@@ -109,6 +110,7 @@ const ResetPassword = () => {
 							required
 							disabled={isLoading}
 						/>
+						<PasswordStrengthIndicator password={newPassword} />
 					</div>
 					<div className="mb-5">
 						<label
