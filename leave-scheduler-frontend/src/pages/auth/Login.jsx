@@ -73,7 +73,7 @@ const Login = () => {
 			setRememberMe(true);
 			handleChange({ target: { name: "username", value: rememberedUser } });
 		}
-	}, [handleChange]);
+	}, []);
 
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#18181b] via-[#23232a] to-[#1a2636]">
