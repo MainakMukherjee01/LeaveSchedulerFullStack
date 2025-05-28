@@ -111,6 +111,7 @@ public class AuthService {
                     jwt,
                     userDetails.getId(),
                     userDetails.getUsername(),
+                    userDetails.getFullName(),
                     userDetails.getEmail(),
                     user.getRoles());
         } catch (Exception e) {

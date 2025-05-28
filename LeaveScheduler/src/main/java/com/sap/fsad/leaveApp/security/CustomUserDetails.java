@@ -16,15 +16,17 @@ public class CustomUserDetails implements UserDetails {
     @JsonIgnore
     private String password;
     private String email;
+    private String fullName;
     private Collection<? extends GrantedAuthority> authorities;
     private boolean isActive;
 
-    public CustomUserDetails(Long id, String username, String password, String email,
+    public CustomUserDetails(Long id, String username, String password, String email, String fullName,
             Collection<? extends GrantedAuthority> authorities, boolean isActive) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.fullName = fullName;
         this.authorities = authorities;
         this.isActive = isActive;
     }
@@ -39,6 +41,7 @@ public class CustomUserDetails implements UserDetails {
                 user.getUsername(),
                 user.getPassword(),
                 user.getEmail(),
+                user.getFullName(),
                 authorities,
                 user.isActive());
     }
@@ -49,6 +52,10 @@ public class CustomUserDetails implements UserDetails {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 
     @Override

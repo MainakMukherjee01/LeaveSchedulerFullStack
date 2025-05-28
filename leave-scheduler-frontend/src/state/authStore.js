@@ -22,6 +22,7 @@ export const useAuthStore = create((set) => ({
 				user = {
 					id: data.id,
 					username: data.username,
+					fullName:data.fullName? data.fullName : data.username, 
 					email: data.email,
 					roles: data.roles,
 				};
@@ -48,31 +49,3 @@ export const useAuthStore = create((set) => ({
 		set({ user: null, token: null, isAuthenticated: false });
 	},
 }));
-
-// export const useAuthStore = create((set) => ({
-// 	user: JSON.parse(localStorage.getItem("user")) || null,
-// 	token: localStorage.getItem("token") || null,
-// 	isAuthenticated: !!localStorage.getItem("token"),
-
-// 	login: async (credentials) => {
-// 		const response = await login(credentials);
-// 		const token= response.token;
-// 		const user = response.user;
-// 		// Save to localStorage for persistence
-// 		localStorage.setItem("authToken", token);
-// 		localStorage.setItem("user", JSON.stringify(user));
-
-// 		set({ user, token, isAuthenticated: true });
-// 	},
-
-// 	logout: () => {
-// 		localStorage.removeItem("authToken");
-// 		localStorage.removeItem("user");
-// 		set({ user: null, token: null, isAuthenticated: false });
-// 	},
-
-// 	register: async (userData) => {
-// 		const response = await register(userData);
-// 		return response.data;
-// 	},
-// }));
