@@ -400,7 +400,7 @@ const Dashboard = () => {
 					>
 						<button
 							onClick={() => setShowProfile(false)}
-							className="absolute top-3 right-3 text-gray-400 hover:text-accent-pink text-xl font-bold"
+							className="absolute top-3 right-3 bg-white text-gray-400 hover:text-accent-pink text-xl font-bold"
 							aria-label="Close"
 						>
 							&times;
