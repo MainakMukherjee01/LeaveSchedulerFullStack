@@ -49,8 +49,10 @@ const Login = () => {
 			// Store remember me preference
 			if (rememberMe) {
 				localStorage.setItem("rememberUser", values.username);
+				localStorage.setItem("rememberPass", values.password); // Not secure!
 			} else {
 				localStorage.removeItem("rememberUser");
+				localStorage.removeItem("rememberPass");
 			}
 
 			// Await login and extract user info from JwtResponse
@@ -69,10 +71,15 @@ const Login = () => {
 	// Check for remembered user on component mount
 	useEffect(() => {
 		const rememberedUser = localStorage.getItem("rememberUser");
+		const rememberedPass = localStorage.getItem("rememberPass");
 		if (rememberedUser) {
 			setRememberMe(true);
 			handleChange({ target: { name: "username", value: rememberedUser } });
+			if (rememberedPass) {
+				handleChange({ target: { name: "password", value: rememberedPass } });
+			}
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
